@@ -12,7 +12,7 @@ if [[ $REPLY =~ ^[0-9]{4}$ ]]; then
 	if [[ $USB =~ 0001 ]]; then
 	hcm --putname "BPCB-1504-$REPLY"
 	sleep 2s
-	hcm --getname >> ./serialwritten.txt
+	hcm --getname >> ./serialwritten.txt
 	cat ./serialwritten.txt
 	else
 	echo "The USB device is not plugged." >&2

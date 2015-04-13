@@ -4,6 +4,7 @@ import sys
 import os
 import time
 import csv
+import usb.core
 import usb.util
 import subprocess
 import traceback

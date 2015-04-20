@@ -8,12 +8,12 @@
 read -p "please enter the last 4 digits of a serial number >"
 USB=$( lsusb | grep 297c ) #get the USB status
 if [[ $REPLY =~ ^[0-9]{4}$ ]]; then 
-	echo "The serial number will write is BPCB-1504-$REPLY "
+	echo "The serial number will write is $REPLY "
 	if [[ $USB =~ 0001 ]]; then #determin if the Yoliboard is plugged.
-	hcm --putname "BPCB-1504-$REPLY"
-	sleep 2s
-	hcm --getname >> ./serialwritten.txt
-	cat ./serialwritten.txt
+	hcm --putname "$REPLY"
+	sleep 1s
+	hcm --getname >> ~/serialwritten.txt
+	cat ~/serialwritten.txt
 	else
 	echo "The Yoliboard is not plugged,please check the USB cable or press the reset button." >&2
 	exit 1
